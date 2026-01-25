@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Saurabh Vijay - Glaciology Research Group | IIT Roorkee</title>
+<!-- SEO Meta Tags -->
+<meta content="Dr. Saurabh Vijay's research group at IIT Roorkee - Glacier dynamics, remote sensing, and cryosphere science in High-Mountain Asia" name="description"/>
+<meta content="glaciology, remote sensing, IIT Roorkee, High-Mountain Asia, SAR, glacier dynamics" name="keywords"/>
+<meta content="Dr. Saurabh Vijay" name="author"/>
+<!-- Open Graph Tags -->
+<meta property="og:title" content="Dr. Saurabh Vijay - Glaciology Research">
+<meta property="og:description" content="Glacier dynamics and remote sensing research at IIT Roorkee">
+<meta property="og:type" content="website">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Lucide Icons CDN -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.nav-link.active {
+    color: rgb(37, 99, 235);
+    font-weight: 600;
+}
+
+.nav-link:focus,
+.carousel-btn:focus,
+button:focus {
+    outline: 2px solid rgb(37, 99, 235);
+    outline-offset: 2px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem;
+    background-color: rgb(37, 99, 235);
+    color: white;
+    border-radius: 9999px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: rgb(29, 78, 216);
+}
+
+.carousel-btn.left {
+    left: 0.5rem;
+}
+
+.carousel-btn.right {
+    right: 0.5rem;
+}
+
+.carousel-btn.masters {
+    background-color: rgb(8, 145, 178);
+}
+
+.carousel-btn.masters:hover {
+    background-color: rgb(14, 116, 144);
+}
+
+.project-card {
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-0.5rem);
+}
+
+.publication-card {
+    transition: box-shadow 0.3s ease;
+}
+
+.publication-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.year-filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.year-filter-btn.active {
+    background-color: rgb(37, 99, 235);
+    color: white;
+}
+
+.year-filter-btn:not(.active) {
+    background-color: rgb(229, 231, 235);
+    color: rgb(55, 65, 81);
+}
+
+.year-filter-btn:not(.active):hover {
+    background-color: rgb(209, 213, 219);
+}
+
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.expandable-content.expanded {
+    max-height: 2000px;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.student-image {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+    .student-image {
+        width: 12rem;
+        height: 12rem;
+    }
+}
+
+.engagement-item {
+    border-left: 4px solid;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.engagement-item.membership {
+    border-left-color: rgb(96, 165, 250);
+}
+
+.engagement-item.committee {
+    border-left-color: rgb(34, 211, 238);
+}
+
+.engagement-item.outreach {
+    border-left-color: rgb(74, 222, 128);
+}
+
+.engagement-item.conference {
+    border-left-color: rgb(192, 132, 252);
+}
+
+#easter-egg {
+    display: inline-block;
+}
+
+#easter-egg:active {
+    transform: scale(1.2);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .carousel-btn {
+        padding: 0.375rem;
+    }
+    
+    .carousel-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    h2 {
+        font-size: 1.875rem;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-md z-50" aria-label="Main navigation">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<h1 class="text-xl sm:text-2xl font-bold text-blue-900">Dr. Saurabh Vijay</h1>
+</div>
+<!-- Desktop Menu -->
+<div class="hidden md:flex space-x-8" id="desktop-menu">
+<button class="nav-link active capitalize transition-colors" data-section="home">home</button>
+<button class="nav-link capitalize transition-colors text-gray-700 hover:text-blue-600" data-section="projects">projects</button>
+<button class="nav-link capitalize transition-colors text-gray-700 hover:text-blue-600" data-section="students">students</button>
+<button class="nav-link capitalize transition-colors text-gray-700 hover:text-blue-600" data-section="publications">publications</button>
+<button class="nav-link capitalize transition-colors text-gray-700 hover:text-blue-600" data-section="engagement">engagement</button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-gray-700" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+<i data-lucide="menu" id="menu-icon"></i>
+<i class="hidden" data-lucide="x" id="close-icon"></i>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div class="hidden md:hidden bg-white border-t" id="mobile-menu">
+<div class="px-4 py-3 space-y-3">
+<button class="mobile-nav-link block w-full text-left capitalize py-2 text-gray-700 hover:text-blue-600" data-section="home">home</button>
+<button class="mobile-nav-link block w-full text-left capitalize py-2 text-gray-700 hover:text-blue-600" data-section="projects">projects</button>
+<button class="mobile-nav-link block w-full text-left capitalize py-2 text-gray-700 hover:text-blue-600" data-section="students">students</button>
+<button class="mobile-nav-link block w-full text-left capitalize py-2 text-gray-700 hover:text-blue-600" data-section="publications">publications</button>
+<button class="mobile-nav-link block w-full text-left capitalize py-2 text-gray-700 hover:text-blue-600" data-section="engagement">engagement</button>
+</div>
+</div>
+</nav>
+
+<!-- Hero Section -->
+
+
+<section class="pt-28 pb-20 px-4" id="home">
+<div class="max-w-6xl mx-auto">
+<div class="grid md:grid-cols-2 gap-8 items-center">
+<div class="space-y-6">
+<div class="md:hidden flex justify-center mb-6">
+            <img alt="Dr. Saurabh Vijay" loading="lazy" class="w-32 h-32 rounded-full object-cover shadow-xl border-4 border-white" src="assets/images/photo-1544005313-94ddf0286df2.jpg"/>
+</div>
+<h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
+Monitoring Glaciers and Snow in High-Mountain Asia
+</h2>
+<p class="text-lg text-gray-600">
+Assistant Professor | Geomatics Engineering | IIT Roorkee
+</p>
+<p class="text-gray-700 leading-relaxed">
+Specializing in glacier dynamics, remote sensing, and cryosphere science with focus on High-Mountain Asia. 
+Using radar DEMs, SAR interferometry, and optical remote sensing to understand glacier elevation changes, 
+mass balance, and the role of supraglacial features in glacier response to climate change.
+</p>
+<p class="text-gray-700 leading-relaxed">
+<strong>Education:</strong> B.E. in Electronics and Communications Engineering (University of Rajasthan, 2008), 
+M.Tech in Geomatics Engineering (IIT Roorkee, 2012)
+</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" href="mailto:saurabh.vijay@ce.iitr.ac.in">
+<i data-lucide="mail"></i>
+<span class="hidden sm:inline">Email</span>
+</a>
+<a class="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors" href="https://www.iitr.ac.in/departments/CE/pages/People+Faculty+Saurabh_Vijay.html" target="_blank">
+<i data-lucide="user"></i>
+<span class="hidden sm:inline">IIT Roorkee Profile</span>
+</a>
+<a class="flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors" href="https://scholar.google.com" target="_blank">
+<i data-lucide="graduation-cap"></i>
+<span class="hidden sm:inline">Google Scholar</span>
+</a>
+</div>
+</div>
+<div class="relative hidden md:block">
+<div class="flex justify-center md:justify-start">
+<img alt="Dr. Saurabh Vijay" loading="lazy" class="w-40 h-40 lg:w-48 lg:h-48 rounded-full object-cover shadow-xl border-4 border-white" src="assets/images/photo-1544005313-94ddf0286df2.jpg"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="max-w-6xl mx-auto"><hr class="border-gray-200 my-12"/></div>
+
+<!-- Projects Section -->
+<section class="max-w-6xl mx-auto px-6 py-14 bg-white rounded-xl shadow" id="projects">
+<h2 class="text-3xl font-bold mb-8">Projects & Grants</h2>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead class="bg-blue-50">
+<tr>
+<th class="p-3 text-left">Project</th>
+<th class="p-3">Role</th>
+<th class="p-3">Funding</th>
+<th class="p-3">Duration</th>
+</tr>
+</thead>
+<tbody class="divide-y">
+<tr><td class="p-3">Supraglacial lakes & ice velocity coupling, Greenland</td><td class="p-3">PI</td><td class="p-3">ISRO</td><td class="p-3">2022–2025</td></tr>
+<tr><td class="p-3">High-resolution Himalayan glacier monitoring</td><td class="p-3">PI</td><td class="p-3">IIT Roorkee (FIG)</td><td class="p-3">2022–2024</td></tr>
+<tr><td class="p-3">Glacier change classification – Uttarakhand</td><td class="p-3">Indian PI</td><td class="p-3">Bavarian Indian Center</td><td class="p-3">2021</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- Students Section -->
+<section class="py-16 px-4" id="students">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center">
+Research Team
+</h2>
+<!-- PhD Students Carousel -->
+<div class="mb-16">
+<h3 class="text-2xl font-bold text-gray-800 mb-6">PhD Students</h3>
+<div class="relative bg-white rounded-xl shadow-lg p-6 sm:p-8" id="phd-carousel">
+<!-- PhD student content will be dynamically inserted -->
+</div>
+</div>
+<!-- Masters Students Carousel -->
+<div>
+<h3 class="text-2xl font-bold text-gray-800 mb-6">Master's Students</h3>
+<div class="relative bg-white rounded-xl shadow-lg p-6 sm:p-8" id="masters-carousel">
+<!-- Masters student content will be dynamically inserted -->
+</div>
+</div>
+</div>
+</section>
+
+<!-- Publications Section -->
+<section class="max-w-6xl mx-auto px-6 py-14" id="publications">
+<h2 class="text-3xl font-bold mb-6">Refereed Publications</h2>
+<div class="flex flex-wrap gap-2 mb-6" id="pub-filters"></div>
+<div class="space-y-4" id="pub-list"></div>
+</section>
+
+<!-- Academic Engagement Section -->
+<section class="py-16 px-4 bg-gradient-to-br from-cyan-50 to-blue-50" id="engagement">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center">
+Academic Engagement & Outreach
+</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Professional Memberships -->
+<div class="bg-white rounded-xl shadow-lg p-6">
+<h3 class="text-2xl font-bold text-blue-900 mb-6 flex items-center gap-2">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20">
+<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+</svg>
+Professional Memberships
+</h3>
+<div class="space-y-4" id="memberships-list">
+<!-- Memberships will be dynamically inserted -->
+</div>
+</div>
+<!-- Editorial & Advisory -->
+<div class="bg-white rounded-xl shadow-lg p-6">
+<h3 class="text-2xl font-bold text-blue-900 mb-6 flex items-center gap-2">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20">
+<path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+<path clip-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" fill-rule="evenodd"></path>
+</svg>
+Editorial & Advisory Roles
+</h3>
+<div class="space-y-4" id="committees-list">
+<!-- Committees will be dynamically inserted -->
+</div>
+</div>
+<!-- Outreach Activities -->
+<div class="bg-white rounded-xl shadow-lg p-6">
+<h3 class="text-2xl font-bold text-blue-900 mb-6 flex items-center gap-2">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20">
+<path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path>
+<path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path>
+</svg>
+Public Outreach
+</h3>
+<div class="space-y-4" id="outreach-list">
+<!-- Outreach activities will be dynamically inserted -->
+</div>
+</div>
+<!-- Conference Presentations -->
+<div class="bg-white rounded-xl shadow-lg p-6">
+<h3 class="text-2xl font-bold text-blue-900 mb-6 flex items-center gap-2">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" fill-rule="evenodd"></path>
+</svg>
+Recent Conferences
+</h3>
+<div class="space-y-4" id="conferences-list">
+<!-- Conferences will be dynamically inserted -->
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12 px-4">
+<div class="max-w-6xl mx-auto text-center">
+<p class="mb-4">© 2026 Dr. Saurabh Vijay | Department of Civil Engineering, IIT Roorkee</p>
+<div class="text-4xl cursor-pointer hover:scale-125 transition-transform inline-block" id="easter-egg" title="Double-click me!">
+🏔️
+</div>
+</div>
+</footer>
+
+<script>
+// DATA DEFINITIONS
+window.publications = [
+  {year: 2019, title: 'Resolving Seasonal Ice Velocity of 45 Greenlandic Glaciers with very high temporal details', authors: 'Vijay, S., Khan, S.A., Kusk, A., Solgaard, A.M., Moon, T., Bjørk, A.A.', journal: 'Geophysical Research Letters', doi: '10.1029/2018GL081503'},
+  {year: 2021, title: 'Greenland ice-sheet wide glacier classification based on two distinct seasonal ice velocity behaviours', authors: 'Vijay, S., King, M.D., Howat, I.M., Solgaard, A.M., Khan, S.A., Noël, B.', journal: 'Journal of Glaciology', doi: '10.1017/jog.2021.89'},
+  {year: 2016, title: 'Elevation change rates of glaciers in the Lahaul-Spiti (Western Himalaya, India)', authors: 'Vijay, S., Braun, M.', journal: 'Remote Sensing', doi: '10.3390/rs8120635'},
+  {year: 2018, title: 'Early 21st century spatially detailed elevation changes of Jammu and Kashmir glaciers (Karakoram-Himalaya)', authors: 'Vijay, S., Braun, M.', journal: 'Global and Planetary Change', doi: '10.1016/j.gloplacha.2018.03.014'},
+  {year: 2025, title: 'Quantifying short-term backwasting rates of a supraglacial ice cliff at Machoi Glacier in the Indian Himalaya', authors: 'Singh, P., Vijay, S., Banerjee, A., Sarangi, C., Rashid, I., Zargar, S.A.', journal: 'Journal of Glaciology', doi: '10.1017/jog.2024.103'},
+  {year: 2025, title: 'Potential of ICESat-2 and multispectral satellite imagery for estimating the depth of shallow glacial lakes in the Himalaya', authors: 'Verma, S.K., Vijay, S.', journal: 'Remote Sensing Applications: Society and Environment', doi: '10.1016/j.rsase.2025.101577'},
+  {year: 2022, title: 'Greenland Mass Trends from Airborne and Satellite Altimetry During 2011–2020', authors: 'Khan, S.A. et al.', journal: 'Journal of Geophysical Research: Earth Surface', doi: '10.1029/2021JF006505'},
+  {year: 2018, title: 'Automatic delineation of debris-covered glaciers using InSAR coherence', authors: 'Lippl, S., Vijay, S., Braun, M.', journal: 'Journal of Glaciology', doi: '10.1017/jog.2018.70'},
+  {year: 2021, title: 'Surges of Harald Moltke Bræ, north-western Greenland', authors: 'Müller, L. et al.', journal: 'The Cryosphere', doi: '10.5194/tc-15-3355-2021'},
+  {year: 2023, title: 'A Scaling Relation for Cryoconite Holes', authors: 'Banerjee, A. et al.', journal: 'Geophysical Research Letters', doi: '10.1029/2023GL104942'},
+  {year: 2025, title: 'Inventorying rock glaciers in the Western Himalaya, India', authors: 'Bhat, I.A. et al.', journal: 'Geomorphology', doi: '10.1016/j.geomorph.2024.109514'},
+  {year: 2024, title: 'Assessing potential risk of glacier avalanches to hydropower infrastructure', authors: 'Laha, S. et al.', journal: 'Natural Hazards', doi: '10.1007/s11069-024-06614-4'},
+  {year: 2020, title: '60 years of glacier elevation and mass changes in Maipo River Basin, central Andes of Chile', authors: 'Farias-Barahona, D. et al.', journal: 'Remote Sensing', doi: '10.3390/rs12101658'},
+  {year: 2019, title: 'Ice dynamics of Union Glacier from SAR offset tracking', authors: 'Gomez, R. et al.', journal: 'Global and Planetary Change', doi: '10.1016/j.gloplacha.2018.12.012'},
+  {year: 2015, title: 'Four decades of glacier variations at Muztag Ata (eastern Pamir)', authors: 'Holzer, N. et al.', journal: 'The Cryosphere', doi: '10.5194/tc-9-2071-2015'},
+  {year: 2017, title: 'Seasonal and interannual variability of Columbia Glacier, Alaska (2011–2016)', authors: 'Vijay, S., Braun, M.', journal: 'Remote Sensing', doi: '10.3390/rs9060635'}
+];
+
+window.phdStudents = [
+    {
+        name: 'Prankur Sharma',
+        image: 'assets/images/prankur_sharma.jpg',
+        topic: 'Snow Water Equivalent Estimation Using Remote Sensing Techniques And Field Observation',
+        since: '2023',
+        description: 'Our research in the Indian Himalayas focuses on understanding snowpack characteristics by combining high-resolution satellite imagery with systematic field observations. We study key parameters such as snow depth, density, and snow water equivalent, critical for water resource management and disaster assessment. We have deployed a network of time-lapse camera systems to complement satellite observations at diverse topographic locations, ensuring continuous snow depth monitoring. These field-based measurements provide valuable ground truth data, enabling the calibration and validation of our satellite-derived snow depth products.',
+        projects: [
+            {
+                title: 'Himalayan Snow Field Campaign',
+                details: 'By integrating remote sensing and in situ monitoring, we strive to enhance the accuracy and reliability of snow parameter estimation in this region.',
+                images: [
+                    'assets/images/panikhar_field.jpg',
+                    'assets/images/snowdepth_map.jpg'
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Gopika Das K',
+        image: 'assets/images/gopika_das_k.jpg',
+        topic: 'Investigating the interlinked seasonal evolution of supraglacial lakes and ice velocity changes on glaciers in Greenland using both optical and radar remote sensing satellite data.',
+        since: '2023',
+        description: 'This research investigates the evolution of supraglacial lakes over the Greenland Ice Sheet, focusing on their seasonal dynamics in terms of number, area, and volume over the melt season. Given their highly dynamic nature, we analyze patterns of lake filling and drainage and examine how these processes vary with surface temperature, elevation, and terrain slope. Based on the estimated area and volume, supraglacial lakes are classified into rapidly draining and non-rapidly draining types. By identifying lakes that rapidly drain, we investigate the terrain factors that control the occurrence of these events, as observed consistently across multiple melt seasons.',
+        projects: [
+            {
+                title: 'Greenland Glacier Dynamics',
+                details: 'Furthermore, we intend to examine the influence of such rapid drainage events on glacier dynamics by integrating them with surface ice velocity fields derived from Sentinel-1 radar data.',
+                images: [
+                    'assets/images/greenland_lake_charts.jpg',
+                    'assets/images/greenland_topography.jpg'
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Sarvesh Kumar Verma',
+        image: 'assets/images/sarvesh_kumar_verma.jpg',
+        topic: 'To improve the observation of small glaciers using satellite remote sensing techniques.',
+        since: '2021',
+        description: 'This research focuses on mapping glaciers, calculating their decadal retreat rates, and showing the relationship between frontal retreat and mass rate changes in the Himalaya using Deep Learning techniques and satellite remote sensing. This research also determines the glacial lake depth estimates using ICESat-2 Laser satellites and multi-spectral remote sensing images.',
+        projects: [
+            {
+                title: 'CB Basin Temporal Analysis',
+                details: 'Temporal glacier outlines using UNet++ model for years 2010, 2019, and 2024.',
+                images: [
+                    'assets/images/cb_basin_mapping.jpg'
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Deepak Verma',
+        image: 'assets/images/deepak_verma.jpg',
+        topic: 'Assessment Of Seasonal Deformation And Failure Risk In Dams Using Satellite-Based Time Series SAR Interferometry.',
+        since: '2022',
+        description: 'My research focuses on dam monitoring using InSAR-based time series analysis, understanding the seasonal dam deformation, and identifying the potential failure signals in dams. Evaluating dam deformation seasonality is crucial, as it reflects the dam\'s operational condition and is influenced by seasonal changes in reservoir water level and rainfall, making it key for effective safety monitoring and management. So far, we have studied some of the dams in India (i.e., Tehri, Pong, and Nagrajuna Sagar), as well as some of the dams in the USA, to examine the seasonality of deformation and potential failure risk using the InSAR Sentinel-1 C-band data.',
+        projects: []
+    },
+    {
+        name: 'Sapna Azad',
+        image: 'assets/images/sapna_azad.jpg',
+        topic: 'Integrating remote sensing and modeling for assessing ice dynamics in East Antarctica.',
+        since: '2023',
+        description: 'The research focuses on how Amery Ice Shelf Basin in East Antarctica changes dynamically using the Satellite Data and through Modelling. First, we examine the long-term mass balance of the ice sheet using the input-output method. Then, we use the DDInSAR technique to map the position of the grounding line of the ice shelf. After that we use models to investigate how subglacial hydrology affects the stability of the ice shelf and the position of the grounding line.',
+        projects: []
+    },
+    {
+        name: 'Pawan Singh',
+        image: 'assets/images/pawan_singh.jpg',
+        topic: 'High Resolution Monitoring of the Himalayan glacier using terrestrial observations and methods',
+        since: 'July 2021',
+        description: 'Doctoral research in Geomatics Engineering from the Indian Institute of Technology Roorkee.',
+        projects: []
+    },
+    {
+        name: 'Yamini Agrawal',
+        image: 'assets/images/yamini_agrawal.jpg',
+        topic: 'MULTI-TEMPORAL ANALYSIS OF CREVASSE EVOLUTION, CALVING PROCESSES AND ICE DISCHARGE PATTERNS IN LAKE-TERMINATING GLACIERS OF HIMALAYAS',
+        since: '2024',
+        description: 'My research focuses on quantifying the complete life cycle of crevasses (nucleation, propagation, and closure) in lake-terminating glaciers using integrated multi-temporal remote sensing and numerical modelling. It also investigates the mechanistic relationships between crevasse characteristics and calving processes (frequency, magnitude, and seasonal variability), and examines the role of crevasses and calving events in controlling ice discharge patterns to quantify total ice discharge.',
+        projects: []
+    },
+    {
+        name: 'Ravindra Kumar',
+        image: 'assets/images/ravindra_kumar.jpg',
+        topic: 'Improving Observations of Glacial Lakes in High Mountain Asia using Multi-Source Remote Sensing Data',
+        since: 'July 2021',
+        description: 'This research focuses on developing an automated framework to map glacial lakes in High Mountain Asia (HMA), creating an updated inventory, and detecting changes across different regions of HMA. It also aims to improve the accuracy of volume estimation for glacial lakes, evaluate the accuracy of area–volume scaling models, and assess their suitability. Additionally, this work involves identifying previously undetected Glacial Lake Outburst Flood (GLOF) events across HMA to more accurately update their occurrence frequency, ultimately contributing to GLOF risk mitigation.',
+        projects: []
+    },
+    {
+        name: 'Hempushpa Sahu',
+        image: 'assets/images/hempushpa_sahu.jpg',
+        topic: 'Multi-source remote sensing data for drought monitoring and assessment.',
+        since: '2021',
+        description: 'In her Ph.D., she is trying to understand drought onset and termination using the different drought indices mostly used from the historical period from 1990 to 2021 for Bundelkhand, Uttar Pradesh, a drought-prone region of central India. Focusing on agricultural drought, a crop yield prediction is done using a random forest machine learning model.',
+        projects: [
+            {
+                title: 'International Collaboration',
+                details: 'Guest researcher at IWW, RWTH Aachen University, Germany, for 6 months through AROP scholarship from July 2024 to December 2024.',
+                images: [
+                    'assets/images/drought_importance_plot.jpg'
+                ]
+            }
+        ]
+    }
+];
+
+window.mastersStudents = [
+    {
+        name: 'Aditya Kumar',
+        topic: 'Debris-Covered Glacier Mapping',
+        since: '2024',
+        image: 'assets/images/Aditya_Kumar.jpg',
+        description: 'Using InSAR coherence and optical data to map debris-covered glaciers in the Himalayas. Developing automated classification techniques.',
+        projects: [
+            {
+                title: 'Debris Mapping Algorithm',
+                details: 'Automated detection of debris cover using multi-temporal SAR coherence.',
+                images: [
+                    'assets/images/photo-1483728642387-6c3bdd6c93e5.jpg'
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Priya Sharma',
+        topic: 'Glacier Velocity Analysis',
+        since: '2024',
+        image: 'assets/images/Priya_Sharma.jpg',
+        description: 'Analyzing seasonal glacier velocity variations using optical and SAR offset tracking methods.',
+        projects: [
+            {
+                title: 'Seasonal Velocity Patterns',
+                details: 'Tracking velocity changes across different glacier types in Uttarakhand.',
+                images: [
+                    'assets/images/photo-1506905925346-21bda4d32df4.jpg'
+                ]
+            }
+        ]
+    }
+];
+
+window.engagements = {
+  memberships: [
+    {
+      organization: 'International Glaciological Society',
+      role: 'Council Member',
+      period: 'Since 2023'
+    },
+    {
+      organization: 'International Glaciological Society',
+      role: 'Member',
+      period: 'Ongoing'
+    },
+    {
+      organization: 'IEEE',
+      role: 'Member',
+      period: 'Ongoing'
+    },
+    {
+      organization: 'IGARSS',
+      role: 'Member',
+      period: 'Ongoing'
+    }
+  ],
+  committees: [
+    {
+      name: 'NASA ROSES Research Calls',
+      role: 'Review Panel Member',
+      period: '2023-2024'
+    },
+    {
+      name: 'India\'s Scientific Expedition to Antarctica (NCPOR)',
+      role: 'Proposal Reviewer',
+      period: '2022-Present'
+    },
+    {
+      name: 'Journal of Glaciology',
+      role: 'Reviewer',
+      period: 'Ongoing'
+    },
+    {
+      name: 'Remote Sensing of Environment',
+      role: 'Reviewer',
+      period: 'Ongoing'
+    },
+    {
+      name: 'The Cryosphere',
+      role: 'Reviewer',
+      period: 'Ongoing'
+    }
+  ],
+  outreach: [
+    {
+      activity: 'Public Lecture Series on Climate Change',
+      description: 'Regular talks on glacier dynamics and climate change impacts for general audiences.'
+    },
+    {
+      activity: 'School Outreach Programs',
+      description: 'Interactive sessions with school students about Himalayan glaciers and remote sensing.'
+    },
+    {
+      activity: 'Media Interviews',
+      description: 'Expert commentary on glacier and climate science for national and international media.'
+    }
+  ],
+  conferences: [
+    {
+      event: 'IGS International Symposium',
+      location: 'Reykjavik, Iceland',
+      date: 'August 2024'
+    },
+    {
+      event: 'AGU Fall Meeting',
+      location: 'San Francisco, USA',
+      date: 'December 2023'
+    },
+    {
+      event: 'Asian Conference on Remote Sensing',
+      location: 'New Delhi, India',
+      date: 'November 2023'
+    }
+  ]
+};
+
+// CAROUSEL FUNCTIONALITY
+let phdIndex = 0;
+let mastersIndex = 0;
+let expandedPhd = false;
+let expandedMasters = false;
+
+function renderPhdCarousel() {
+    const carousel = document.getElementById('phd-carousel');
+    if (!window.phdStudents || phdStudents.length === 0) {
+        carousel.innerHTML = '<p class="text-gray-500">No PhD students data available.</p>';
+        return;
+    }
+    
+    const student = phdStudents[phdIndex];
+    
+    carousel.innerHTML = `
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <img 
+                src="${student.image}"
+                alt="${student.name}"
+                loading="lazy"
+                class="student-image"
+            />
+            <div class="flex-1 text-center md:text-left w-full">
+                <h4 class="text-2xl font-bold text-gray-900 mb-2">${student.name}</h4>
+                <p class="text-blue-600 font-semibold mb-3">PhD Student (${student.since})</p>
+                <p class="text-gray-700 text-lg mb-4"><strong>Topic:</strong> ${student.topic}</p>
+                
+                <button id="phd-expand-btn" class="flex items-center gap-2 mx-auto md:mx-0 text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                    <span>${expandedPhd ? 'Hide Details' : 'Show Details'}</span>
+                    <i data-lucide="${expandedPhd ? 'chevron-up' : 'chevron-down'}"></i>
+                </button>
+                
+                <div id="phd-expandable" class="expandable-content ${expandedPhd ? 'expanded' : ''}">
+                    <div class="mt-6 space-y-6 animate-fadeIn">
+                        <p class="text-gray-700 leading-relaxed">${student.description}</p>
+                        ${renderProjects(student.projects)}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        ${phdStudents.length > 1 ? `
+        <button class="carousel-btn left" onclick="previousPhd()" aria-label="Previous PhD student">
+            <i data-lucide="chevron-left"></i>
+        </button>
+        <button class="carousel-btn right" onclick="nextPhd()" aria-label="Next PhD student">
+            <i data-lucide="chevron-right"></i>
+        </button>
+        ` : ''}
+    `;
+    
+    lucide.createIcons();
+    document.getElementById('phd-expand-btn')?.addEventListener('click', togglePhdExpand);
+}
+
+function renderMastersCarousel() {
+    const carousel = document.getElementById('masters-carousel');
+    if (!window.mastersStudents || mastersStudents.length === 0) {
+        carousel.innerHTML = '<p class="text-gray-500">No Master\'s students data available.</p>';
+        return;
+    }
+    
+    const student = mastersStudents[mastersIndex];
+    
+    carousel.innerHTML = `
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <img 
+                src="${student.image}"
+                alt="${student.name}"
+                loading="lazy"
+                class="student-image"
+            />
+            <div class="flex-1 text-center md:text-left w-full">
+                <h4 class="text-2xl font-bold text-gray-900 mb-2">${student.name}</h4>
+                <p class="text-cyan-600 font-semibold mb-3">Master's Student (${student.since})</p>
+                <p class="text-gray-700 text-lg mb-4"><strong>Topic:</strong> ${student.topic}</p>
+                
+                <button id="masters-expand-btn" class="flex items-center gap-2 mx-auto md:mx-0 text-cyan-600 font-semibold hover:text-cyan-700 transition-colors">
+                    <span>${expandedMasters ? 'Hide Details' : 'Show Details'}</span>
+                    <i data-lucide="${expandedMasters ? 'chevron-up' : 'chevron-down'}"></i>
+                </button>
+                
+                <div id="masters-expandable" class="expandable-content ${expandedMasters ? 'expanded' : ''}">
+                    <div class="mt-6 space-y-6 animate-fadeIn">
+                        <p class="text-gray-700 leading-relaxed">${student.description}</p>
+                        ${renderProjects(student.projects)}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        ${mastersStudents.length > 1 ? `
+        <button class="carousel-btn left masters" onclick="previousMasters()" aria-label="Previous Master's student">
+            <i data-lucide="chevron-left"></i>
+        </button>
+        <button class="carousel-btn right masters" onclick="nextMasters()" aria-label="Next Master's student">
+            <i data-lucide="chevron-right"></i>
+        </button>
+        ` : ''}
+    `;
+    
+    lucide.createIcons();
+    document.getElementById('masters-expand-btn')?.addEventListener('click', toggleMastersExpand);
+}
+
+function renderProjects(projects) {
+    if (!projects || projects.length === 0) return '';
+    
+    return projects.map(project => `
+        <div class="border-t pt-4">
+            <h5 class="font-bold text-gray-900 mb-2">${project.title}</h5>
+            <p class="text-gray-700 mb-3">${project.details}</p>
+            ${project.images && project.images.length > 0 ? `
+            <div class="image-gallery">
+                ${project.images.map(img => `
+                    <img src="${img}" alt="${project.title}" loading="lazy" class="w-full h-40 object-cover rounded-lg shadow-md">
+                `).join('')}
+            </div>
+            ` : ''}
+        </div>
+    `).join('');
+}
+
+function togglePhdExpand() {
+    expandedPhd = !expandedPhd;
+    renderPhdCarousel();
+}
+
+function toggleMastersExpand() {
+    expandedMasters = !expandedMasters;
+    renderMastersCarousel();
+}
+
+function nextPhd() {
+    phdIndex = (phdIndex + 1) % phdStudents.length;
+    expandedPhd = false;
+    renderPhdCarousel();
+}
+
+function previousPhd() {
+    phdIndex = (phdIndex - 1 + phdStudents.length) % phdStudents.length;
+    expandedPhd = false;
+    renderPhdCarousel();
+}
+
+function nextMasters() {
+    mastersIndex = (mastersIndex + 1) % mastersStudents.length;
+    expandedMasters = false;
+    renderMastersCarousel();
+}
+
+function previousMasters() {
+    mastersIndex = (mastersIndex - 1 + mastersStudents.length) % mastersStudents.length;
+    expandedMasters = false;
+    renderMastersCarousel();
+}
+
+// PUBLICATIONS RENDERING
+function renderPublications() {
+    const container = document.getElementById('pub-list');
+    const filters = document.getElementById('pub-filters');
+    
+    if (!container || !window.publications) {
+        console.error('Publications container or data not found');
+        return;
+    }
+
+    const years = ['all', ...new Set(publications.map(p => p.year))].sort((a,b) => {
+        if (a === 'all') return -1;
+        if (b === 'all') return 1;
+        return b - a;
+    });
+
+    filters.innerHTML = years.map(year => `
+        <button class="year-filter-btn ${year === 'all' ? 'active' : ''}" data-year="${year}">
+            ${year === 'all' ? 'All Years' : year}
+        </button>
+    `).join('');
+
+    filters.querySelectorAll('.year-filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const year = this.getAttribute('data-year');
+            filters.querySelectorAll('.year-filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            displayPublications(year);
+        });
+    });
+
+    displayPublications('all');
+
+    function displayPublications(year) {
+        const filtered = year === 'all' 
+            ? publications 
+            : publications.filter(p => String(p.year) === String(year));
+        
+        container.innerHTML = filtered.map(p => `
+            <div class="publication-card bg-white rounded-lg shadow p-6">
+                <h4 class="font-bold text-gray-900 mb-2">${p.title}</h4>
+                <p class="text-sm text-gray-600 mb-2">${p.authors}</p>
+                <p class="text-sm text-gray-500 mb-3">
+                    <em>${p.journal}</em> (${p.year})
+                </p>
+                ${p.doi ? `
+                    <a href="https://doi.org/${p.doi}" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="text-blue-600 hover:text-blue-700 text-sm font-semibold inline-flex items-center gap-1">
+                        View Publication
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                ` : ''}
+            </div>
+        `).join('');
+        
+        lucide.createIcons();
+    }
+}
+
+// ENGAGEMENT RENDERING
+function renderEngagements() {
+    if (!window.engagements) {
+        console.error('Engagements data not found');
+        return;
+    }
+
+    const memberships = document.getElementById('memberships-list');
+    const committees = document.getElementById('committees-list');
+    const outreach = document.getElementById('outreach-list');
+    const conferences = document.getElementById('conferences-list');
+
+    if (memberships && engagements.memberships) {
+        memberships.innerHTML = engagements.memberships.map(m => `
+            <div class="engagement-item membership">
+                <p class="font-semibold text-gray-900">${m.organization}</p>
+                <p class="text-sm text-gray-600">${m.role}${m.period ? ' • ' + m.period : ''}</p>
+            </div>
+        `).join('');
+    }
+
+    if (committees && engagements.committees) {
+        committees.innerHTML = engagements.committees.map(c => `
+            <div class="engagement-item committee">
+                <p class="font-semibold text-gray-900">${c.name}</p>
+                <p class="text-sm text-gray-600">${c.role}${c.period ? ' • ' + c.period : ''}</p>
+            </div>
+        `).join('');
+    }
+
+    if (outreach && engagements.outreach) {
+        outreach.innerHTML = engagements.outreach.map(o => `
+            <div class="engagement-item outreach">
+                <p class="font-semibold text-gray-900">${o.activity}</p>
+                <p class="text-sm text-gray-600">${o.description}</p>
+            </div>
+        `).join('');
+    }
+
+    if (conferences && engagements.conferences) {
+        conferences.innerHTML = engagements.conferences.map(c => `
+            <div class="engagement-item conference">
+                <p class="font-semibold text-gray-900">${c.event}</p>
+                <p class="text-sm text-gray-600">${c.location} • ${c.date}</p>
+            </div>
+        `).join('');
+    }
+}
+
+// NAVIGATION
+let activeSection = 'home';
+
+function initNavigation() {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            const section = this.getAttribute('data-section');
+            scrollToSection(section);
+            updateActiveLink(section);
+        });
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            const section = this.getAttribute('data-section');
+            scrollToSection(section);
+            updateActiveLink(section);
+            toggleMobileMenu();
+        });
+    });
+
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    window.addEventListener('scroll', debounce(updateActiveSectionOnScroll, 100));
+}
+
+function scrollToSection(section) {
+    const element = document.getElementById(section);
+    if (element) {
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function updateActiveLink(section) {
+    activeSection = section;
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('data-section') === section) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+function updateActiveSectionOnScroll() {
+    const sections = ['home', 'projects', 'students', 'publications', 'engagement'];
+    const scrollPosition = window.scrollY + 100;
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+            if (activeSection !== sections[i]) {
+                updateActiveLink(sections[i]);
+            }
+            break;
+        }
+    }
+}
+
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenu.classList.toggle('hidden');
+    menuIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// EASTER EGG
+function initEasterEgg() {
+    const easterEgg = document.getElementById('easter-egg');
+    if (easterEgg) {
+        easterEgg.addEventListener('dblclick', function() {
+            alert('🏔️ Keep exploring glaciers! 🏔️');
+        });
+    }
+}
+
+// INITIALIZE EVERYTHING
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        renderPublications();
+        renderEngagements();
+        renderPhdCarousel();
+        renderMastersCarousel();
+        initNavigation();
+        initEasterEgg();
+        
+        lucide.createIcons();
+    } catch (e) {
+        console.error('Error initializing site:', e);
+    }
+});
+</script>
+
+<script>
+lucide.createIcons();
+</script>
+</body>
+</html>
