@@ -34,12 +34,6 @@ html {
     scroll-behavior: smooth;
 }
 
-.nav-link.active {
-    color: rgb(37, 99, 235);
-    font-weight: 600;
-}
-
-.nav-link:focus,
 .carousel-btn:focus,
 button:focus {
     outline: 2px solid rgb(37, 99, 235);
@@ -85,6 +79,30 @@ button:focus {
 
 .project-card:hover {
     transform: translateY(-0.5rem);
+}
+
+.project-toggle-btn {
+    outline: none;
+}
+
+.project-details {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    overflow: hidden;
+}
+
+.field-visit-card {
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.field-visit-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.15), 0 4px 6px -2px rgba(30, 64, 175, 0.08);
+    transform: translateY(-2px);
+}
+.field-visit-toggle-btn {
+    outline: none;
+}
+.field-visit-details {
+    transition: max-height 0.3s, opacity 0.3s;
+    overflow: hidden;
 }
 
 .publication-card {
@@ -159,6 +177,127 @@ button:focus {
     }
 }
 
+.student-card {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.student-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.student-card-horizontal {
+    width: 100%;
+}
+
+.student-card-header-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .student-card-header-horizontal {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.student-card-image-horizontal {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.student-card-info-horizontal {
+    flex: 1;
+    min-width: 0;
+}
+
+.student-card-header {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.student-card-image {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.student-card-name {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: rgb(17, 24, 39);
+    margin-bottom: 0.5rem;
+}
+
+.student-card-topic {
+    font-size: 0.875rem;
+    color: rgb(55, 65, 81);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.student-card-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgb(219, 234, 254);
+    color: rgb(37, 99, 235);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: background-color 0.3s ease;
+}
+
+.student-card-toggle:hover {
+    background-color: rgb(191, 219, 254);
+}
+
+.student-card-toggle.masters {
+    background-color: rgb(207, 250, 254);
+    color: rgb(8, 145, 178);
+}
+
+.student-card-toggle.masters:hover {
+    background-color: rgb(165, 243, 252);
+}
+
+.student-card-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.student-card-details.expanded {
+    max-height: 2000px;
+}
+
+.student-card-content {
+    padding: 1.5rem;
+    border-top: 1px solid rgb(229, 231, 235);
+    font-size: 0.875rem;
+    color: rgb(55, 65, 81);
+    line-height: 1.6;
+}
+
 .engagement-item {
     border-left: 4px solid;
     padding-left: 1rem;
@@ -197,6 +336,54 @@ button:focus {
 .loading {
     opacity: 0.5;
     pointer-events: none;
+}
+
+/* Hero Banner */
+.hero-banner {
+    background-image: url('assets/images/glacier-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 1rem;
+    min-height: 60vh;
+    transition: padding 0.1s ease-out, min-height 0.1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.65) 0%, rgba(37, 99, 235, 0.65) 100%);
+    opacity: 1;
+}
+
+.hero-banner-content {
+    position: relative;
+    z-index: 1;
+    max-width: 6xl;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-frame {
+    aspect-ratio: 3/4;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #mobile-menu {
@@ -259,69 +446,90 @@ button:focus {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Sticky Index Navigation */
+.sticky-index-nav {
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid rgb(229, 231, 235);
+}
+
+.index-nav-link {
+    position: relative;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.index-nav-link.active {
+    color: rgb(37, 99, 235);
+    border-bottom-color: rgb(37, 99, 235);
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
 </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
-<!-- Navigation -->
-<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-md z-50" aria-label="Main navigation">
+
+<!-- Hero Section -->
+<section id="home" class="pt-0">
+<!-- Banner with Professor Name -->
+<div class="hero-banner">
+<div class="hero-banner-content">
+<h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white text-center">Dr. Saurabh Vijay</h1>
+<p class="text-lg text-blue-100 text-center mt-2">Glaciology Research Group | IIT Roorkee</p>
+</div>
+</div>
+
+<!-- Sticky Index Navigation Bar -->
+<nav class="sticky-index-nav bg-white/95 backdrop-blur-md shadow-md sticky top-0 z-40" id="index-nav">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-16">
-<div class="flex items-center">
-<h1 class="text-xl sm:text-2xl font-bold text-blue-900">Dr. Saurabh Vijay</h1>
-</div>
-<!-- Desktop Menu -->
-<div class="hidden md:flex space-x-8" id="desktop-menu">
-<button class="nav-link active capitalize transition-colors" data-section="home">home</button>
-<button class="nav-link capitalize transition-colors text-gray-700 hover:text-blue-600" data-section="projects">projects</button>
-<button class="nav-link capitalize transition-colors text-gray-700 hover:text-blue-600" data-section="students">students</button>
-<button class="nav-link capitalize transition-colors text-gray-700 hover:text-blue-600" data-section="publications">publications</button>
-<button class="nav-link capitalize transition-colors text-gray-700 hover:text-blue-600" data-section="engagement">engagement</button>
-</div>
-<!-- Mobile Menu Button -->
-<button class="md:hidden text-gray-700" id="mobile-menu-btn" aria-label="Toggle mobile menu">
-<i data-lucide="menu" id="menu-icon"></i>
-<i class="hidden" data-lucide="x" id="close-icon"></i>
-</button>
-</div>
-</div>
-<!-- Mobile Menu -->
-<div class="hidden md:hidden bg-white border-t" id="mobile-menu">
-<div class="px-4 py-3 space-y-3">
-<button class="mobile-nav-link block w-full text-left capitalize py-2 text-gray-700 hover:text-blue-600" data-section="home">home</button>
-<button class="mobile-nav-link block w-full text-left capitalize py-2 text-gray-700 hover:text-blue-600" data-section="projects">projects</button>
-<button class="mobile-nav-link block w-full text-left capitalize py-2 text-gray-700 hover:text-blue-600" data-section="students">students</button>
-<button class="mobile-nav-link block w-full text-left capitalize py-2 text-gray-700 hover:text-blue-600" data-section="publications">publications</button>
-<button class="mobile-nav-link block w-full text-left capitalize py-2 text-gray-700 hover:text-blue-600" data-section="engagement">engagement</button>
+<div class="flex justify-center items-center h-14 overflow-x-auto scrollbar-hide">
+<button class="index-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap border-b-2 border-transparent hover:border-blue-600 active" data-section="home">Home</button>
+<button class="index-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap border-b-2 border-transparent hover:border-blue-600" data-section="projects">Projects</button>
+<button class="index-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap border-b-2 border-transparent hover:border-blue-600" data-section="students">Students</button>
+<button class="index-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap border-b-2 border-transparent hover:border-blue-600" data-section="publications">Publications</button>
+<button class="index-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap border-b-2 border-transparent hover:border-blue-600" data-section="engagement">Engagement</button>
 </div>
 </div>
 </nav>
 
-<!-- Hero Section -->
-
-
-<section class="pt-28 pb-20 px-4" id="home">
+<!-- Content Section with Profile Photo and Info -->
+<div class="pb-20 px-4">
 <div class="max-w-6xl mx-auto">
-<div class="grid md:grid-cols-2 gap-8 items-center">
-<div class="space-y-6">
-<div class="md:hidden flex justify-center mb-6">
-            <img alt="Dr. Saurabh Vijay" loading="lazy" class="w-32 h-32 rounded-full object-cover shadow-xl border-4 border-white" src="assets/images/Saurabh_Vijay.jpg"/>
+<div class="flex flex-col items-center mt-12">
+<!-- Profile Photo -->
+<div class="w-full max-w-sm">
+<div class="profile-frame">
+<img alt="Dr. Saurabh Vijay" loading="lazy" src="assets/images/Saurabh_Vijay.jpg"/>
 </div>
-<h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
-Monitoring Glaciers and Snow in High-Mountain Asia
-</h2>
-<p class="text-lg text-gray-600">
-Assistant Professor | Geomatics Engineering | IIT Roorkee
-</p>
+</div>
+
+<!-- Content -->
+<div class="space-y-6 text-center mt-8 max-w-2xl">
+<div>
+<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4">Monitoring Glaciers and Snow in High-Mountain Asia</h2>
+<p class="text-lg font-semibold text-blue-600">Assistant Professor | Geomatics Engineering | IIT Roorkee</p>
+</div>
+
 <p class="text-gray-700 leading-relaxed">
 Specializing in glacier dynamics, remote sensing, and cryosphere science with focus on High-Mountain Asia. 
 Using radar DEMs, SAR interferometry, and optical remote sensing to understand glacier elevation changes, 
 mass balance, and the role of supraglacial features in glacier response to climate change.
 </p>
-<p class="text-gray-700 leading-relaxed">
-<strong>Education:</strong> B.E. in Electronics and Communications Engineering (University of Rajasthan, 2008), 
-M.Tech in Geomatics Engineering (IIT Roorkee, 2012)
-</p>
-<div class="flex flex-wrap gap-4 pt-4">
+
+<div>
+<h3 class="font-bold text-gray-900 mb-2">Education</h3>
+<p class="text-gray-700">B.E. in Electronics and Communications Engineering (University of Rajasthan, 2008)</p>
+<p class="text-gray-700">M.Tech in Geomatics Engineering (IIT Roorkee, 2012)</p>
+</div>
+
+<div class="flex flex-wrap gap-4 pt-4 justify-center">
 <a class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" href="mailto:saurabh.vijay@ce.iitr.ac.in">
 <i data-lucide="mail"></i>
 <span class="hidden sm:inline">Email</span>
@@ -336,13 +544,61 @@ M.Tech in Geomatics Engineering (IIT Roorkee, 2012)
 </a>
 </div>
 </div>
-<div class="relative hidden md:block">
-<div class="flex justify-center md:justify-start">
-<img alt="Dr. Saurabh Vijay" loading="lazy" class="w-40 h-40 lg:w-48 lg:h-48 rounded-full object-cover shadow-xl border-4 border-white" src="assets/images/Saurabh_Vijay.jpg"/>
 </div>
 </div>
-</div>
-</div>
+</section>
+
+<!-- Field Visit Section -->
+<section class="py-16 px-4 bg-gradient-to-br from-blue-50 to-cyan-50" id="field-visits">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center">Field Visits</h2>
+        <div class="space-y-6" id="field-visit-list">
+            <div class="field-visit-card bg-white rounded-xl shadow p-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-1">Himalayan Glacier Expedition 2024</h3>
+                        <div class="text-sm text-gray-700 mb-2">Location: <span class="font-semibold">Chorabari Glacier, Uttarakhand</span> &bull; Date: <span class="font-semibold">May 2024</span></div>
+                    </div>
+                    <button class="field-visit-toggle-btn mt-2 sm:mt-0 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm font-semibold flex items-center gap-2" onclick="toggleFieldVisitDetails(this)">
+                        <span>Show Gallery & Details</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                </div>
+                <div class="field-visit-details mt-4 hidden">
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <img src="assets/images/Saurabh_Vijay.jpg" alt="Field Visit 1" class="rounded-lg shadow h-40 w-full object-cover"/>
+                        <img src="assets/images/Saurabh_Vijay.jpg" alt="Field Visit 2" class="rounded-lg shadow h-40 w-full object-cover"/>
+                        <img src="assets/images/Saurabh_Vijay.jpg" alt="Field Visit 3" class="rounded-lg shadow h-40 w-full object-cover"/>
+                    </div>
+                    <div class="text-gray-700 text-sm">
+                        <p>This field visit focused on in-situ glacier mass balance measurements, installation of time-lapse cameras, and snow/ice sampling for remote sensing validation. The team trekked to the glacier snout and set up monitoring equipment for the melt season.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="field-visit-card bg-white rounded-xl shadow p-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-1">Greenland Supraglacial Lake Survey</h3>
+                        <div class="text-sm text-gray-700 mb-2">Location: <span class="font-semibold">Kangerlussuaq, Greenland</span> &bull; Date: <span class="font-semibold">July 2023</span></div>
+                    </div>
+                    <button class="field-visit-toggle-btn mt-2 sm:mt-0 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm font-semibold flex items-center gap-2" onclick="toggleFieldVisitDetails(this)">
+                        <span>Show Gallery & Details</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                </div>
+                <div class="field-visit-details mt-4 hidden">
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <img src="assets/images/Saurabh_Vijay.jpg" alt="Greenland Visit 1" class="rounded-lg shadow h-40 w-full object-cover"/>
+                        <img src="assets/images/Saurabh_Vijay.jpg" alt="Greenland Visit 2" class="rounded-lg shadow h-40 w-full object-cover"/>
+                        <img src="assets/images/Saurabh_Vijay.jpg" alt="Greenland Visit 3" class="rounded-lg shadow h-40 w-full object-cover"/>
+                    </div>
+                    <div class="text-gray-700 text-sm">
+                        <p>This expedition involved supraglacial lake mapping, drone surveys, and water sampling to study lake drainage events and their impact on ice flow. The team collaborated with local researchers and collected valuable field data for satellite validation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <div class="max-w-6xl mx-auto"><hr class="border-gray-200 my-12"/></div>
@@ -350,22 +606,52 @@ M.Tech in Geomatics Engineering (IIT Roorkee, 2012)
 <!-- Projects Section -->
 <section class="max-w-6xl mx-auto px-6 py-14 bg-white rounded-xl shadow" id="projects">
 <h2 class="text-3xl font-bold mb-8">Projects & Grants</h2>
-<div class="overflow-x-auto">
-<table class="w-full border-collapse">
-<thead class="bg-blue-50">
-<tr>
-<th class="p-3 text-left">Project</th>
-<th class="p-3">Role</th>
-<th class="p-3">Funding</th>
-<th class="p-3">Duration</th>
-</tr>
-</thead>
-<tbody class="divide-y">
-<tr><td class="p-3">Supraglacial lakes & ice velocity coupling, Greenland</td><td class="p-3">PI</td><td class="p-3">ISRO</td><td class="p-3">2022–2025</td></tr>
-<tr><td class="p-3">High-resolution Himalayan glacier monitoring</td><td class="p-3">PI</td><td class="p-3">IIT Roorkee (FIG)</td><td class="p-3">2022–2024</td></tr>
-<tr><td class="p-3">Glacier change classification – Uttarakhand</td><td class="p-3">Indian PI</td><td class="p-3">Bavarian Indian Center</td><td class="p-3">2021</td></tr>
-</tbody>
-</table>
+<div class="space-y-6">
+    <div class="project-card bg-blue-50 rounded-lg shadow p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h3 class="text-xl font-bold text-blue-900 mb-1">Supraglacial lakes & ice velocity coupling, Greenland</h3>
+                <div class="text-sm text-gray-700 mb-2">Role: <span class="font-semibold">PI</span> &bull; Funding: <span class="font-semibold">ISRO</span> &bull; Duration: <span class="font-semibold">2022–2025</span></div>
+            </div>
+            <button class="project-toggle-btn mt-2 sm:mt-0 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm font-semibold flex items-center gap-2" onclick="toggleProjectDetails(this)">
+                <span>Show Details</span>
+                <i data-lucide="chevron-down"></i>
+            </button>
+        </div>
+        <div class="project-details mt-4 text-gray-700 text-sm hidden">
+            <p>This project investigates the coupling between supraglacial lakes and ice velocity in Greenland using remote sensing and field data. The aim is to understand how surface meltwater influences glacier dynamics and contributes to mass loss.</p>
+        </div>
+    </div>
+    <div class="project-card bg-blue-50 rounded-lg shadow p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h3 class="text-xl font-bold text-blue-900 mb-1">High-resolution Himalayan glacier monitoring</h3>
+                <div class="text-sm text-gray-700 mb-2">Role: <span class="font-semibold">PI</span> &bull; Funding: <span class="font-semibold">IIT Roorkee (FIG)</span> &bull; Duration: <span class="font-semibold">2022–2024</span></div>
+            </div>
+            <button class="project-toggle-btn mt-2 sm:mt-0 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm font-semibold flex items-center gap-2" onclick="toggleProjectDetails(this)">
+                <span>Show Details</span>
+                <i data-lucide="chevron-down"></i>
+            </button>
+        </div>
+        <div class="project-details mt-4 text-gray-700 text-sm hidden">
+            <p>This project focuses on high-resolution monitoring of Himalayan glaciers using satellite imagery and field campaigns, aiming to quantify glacier changes and their response to climate variability.</p>
+        </div>
+    </div>
+    <div class="project-card bg-blue-50 rounded-lg shadow p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h3 class="text-xl font-bold text-blue-900 mb-1">Glacier change classification – Uttarakhand</h3>
+                <div class="text-sm text-gray-700 mb-2">Role: <span class="font-semibold">Indian PI</span> &bull; Funding: <span class="font-semibold">Bavarian Indian Center</span> &bull; Duration: <span class="font-semibold">2021</span></div>
+            </div>
+            <button class="project-toggle-btn mt-2 sm:mt-0 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm font-semibold flex items-center gap-2" onclick="toggleProjectDetails(this)">
+                <span>Show Details</span>
+                <i data-lucide="chevron-down"></i>
+            </button>
+        </div>
+        <div class="project-details mt-4 text-gray-700 text-sm hidden">
+            <p>This project classifies glacier changes in Uttarakhand using multi-source satellite data, providing insights into regional glacier health and supporting water resource management.</p>
+        </div>
+    </div>
 </div>
 </section>
 
@@ -375,18 +661,18 @@ M.Tech in Geomatics Engineering (IIT Roorkee, 2012)
 <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center">
 Research Team
 </h2>
-<!-- PhD Students Carousel -->
+<!-- PhD Students Cards -->
 <div class="mb-16">
-<h3 class="text-2xl font-bold text-gray-800 mb-6">PhD Students</h3>
-<div class="relative bg-white rounded-xl shadow-lg p-6 sm:p-8" id="phd-carousel">
-<!-- PhD student content will be dynamically inserted -->
+<h3 class="text-2xl font-bold text-gray-800 mb-8">PhD Students</h3>
+<div class="flex flex-col gap-6" id="phd-cards">
+<!-- PhD student cards will be dynamically inserted -->
 </div>
 </div>
-<!-- Masters Students Carousel -->
+<!-- Masters Students Cards -->
 <div>
-<h3 class="text-2xl font-bold text-gray-800 mb-6">Master's Students</h3>
-<div class="relative bg-white rounded-xl shadow-lg p-6 sm:p-8" id="masters-carousel">
-<!-- Masters student content will be dynamically inserted -->
+<h3 class="text-2xl font-bold text-gray-800 mb-8">Master's Students</h3>
+<div class="flex flex-col gap-6" id="masters-cards">
+<!-- Masters student cards will be dynamically inserted -->
 </div>
 </div>
 </div>
@@ -490,6 +776,24 @@ window.publications = [
   {year: 2015, title: 'Four decades of glacier variations at Muztag Ata (eastern Pamir)', authors: 'Holzer, N. et al.', journal: 'The Cryosphere', doi: '10.5194/tc-9-2071-2015'},
   {year: 2017, title: 'Seasonal and interannual variability of Columbia Glacier, Alaska (2011–2016)', authors: 'Vijay, S., Braun, M.', journal: 'Remote Sensing', doi: '10.3390/rs9060635'}
 ];
+// PROJECTS COLLAPSIBLE FUNCTIONALITY
+function toggleProjectDetails(btn) {
+    const details = btn.parentElement.parentElement.querySelector('.project-details');
+    const icon = btn.querySelector('i');
+    const span = btn.querySelector('span');
+    const isOpen = !details.classList.contains('hidden');
+    document.querySelectorAll('.project-details').forEach(d => d.classList.add('hidden'));
+    document.querySelectorAll('.project-toggle-btn').forEach(b => {
+        b.querySelector('span').textContent = 'Show Details';
+        b.querySelector('i').setAttribute('data-lucide', 'chevron-down');
+    });
+    if (!isOpen) {
+        details.classList.remove('hidden');
+        span.textContent = 'Hide Details';
+        icon.setAttribute('data-lucide', 'chevron-up');
+    }
+    lucide.createIcons();
+}
 
 window.phdStudents = [
     {
@@ -503,7 +807,7 @@ window.phdStudents = [
                 title: 'Himalayan Snow Field Campaign',
                 details: 'By integrating remote sensing and in situ monitoring, we strive to enhance the accuracy and reliability of snow parameter estimation in this region.',
                 images: [
-                    //'assets/images/Saurabh_Vijay.jpg',
+                   // 'assets/images/Saurabh_Vijay.jpg',
                     //'assets/images/Saurabh_Vijay.jpg'
                 ]
             }
@@ -520,7 +824,7 @@ window.phdStudents = [
                 title: 'Greenland Glacier Dynamics',
                 details: 'Furthermore, we intend to examine the influence of such rapid drainage events on glacier dynamics by integrating them with surface ice velocity fields derived from Sentinel-1 radar data.',
                 images: [
-                   // 'assets/images/Saurabh_Vijay.jpg',
+                    //'assets/images/Saurabh_Vijay.jpg',
                     //'assets/images/Saurabh_Vijay.jpg'
                 ]
             }
@@ -536,9 +840,9 @@ window.phdStudents = [
             {
                 title: 'CB Basin Temporal Analysis',
                 details: 'Temporal glacier outlines using UNet++ model for years 2010, 2019, and 2024.',
-               // images: [
-                //    'assets/images/Saurabh_Vijay.jpg'
-                //]
+                images: [
+                    //'assets/images/Saurabh_Vijay.jpg'
+                ]
             }
         ]
     },
@@ -766,117 +1070,67 @@ window.engagements = {
   ]
 };
 
-// CAROUSEL FUNCTIONALITY
-let phdIndex = 0;
-let mastersIndex = 0;
-let expandedPhd = false;
-let expandedMasters = false;
-
-function renderPhdCarousel() {
-    const carousel = document.getElementById('phd-carousel');
-    if (!window.phdStudents || phdStudents.length === 0) {
-        carousel.innerHTML = '<p class="text-gray-500">No PhD students data available.</p>';
+// STUDENT CARDS FUNCTIONALITY
+function renderStudentCards(students, containerId, isPhd = true) {
+    const container = document.getElementById(containerId);
+    if (!students || students.length === 0) {
+        container.innerHTML = '<p class="text-gray-500 col-span-full text-center">No students data available.</p>';
         return;
     }
     
-    const student = phdStudents[phdIndex];
-    
-    carousel.innerHTML = `
-        <div class="flex flex-col md:flex-row items-center gap-8">
-            <img 
-                src="${student.image}"
-                alt="${student.name}"
-                loading="lazy"
-                class="student-image"
-            />
-            <div class="flex-1 text-center md:text-left w-full">
-                <h4 class="text-2xl font-bold text-gray-900 mb-2">${student.name}</h4>
-                <p class="text-blue-600 font-semibold mb-3">PhD Student (${student.since})</p>
-                <p class="text-gray-700 text-lg mb-4"><strong>Topic:</strong> ${student.topic}</p>
-                
-                <button id="phd-expand-btn" class="flex items-center gap-2 mx-auto md:mx-0 text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                    <span>${expandedPhd ? 'Hide Details' : 'Show Details'}</span>
-                    <i data-lucide="${expandedPhd ? 'chevron-up' : 'chevron-down'}"></i>
+    container.innerHTML = students.map((student, index) => {
+        const toggleClass = isPhd ? '' : 'masters';
+        return `
+            <div class="student-card student-card-horizontal">
+                <div class="student-card-header-horizontal">
+                    <img 
+                        src="${student.image}"
+                        alt="${student.name}"
+                        loading="lazy"
+                        class="student-card-image-horizontal"
+                    />
+                    <div class="student-card-info-horizontal">
+                        <div class="student-card-name">${student.name}</div>
+                        <div class="text-xs font-semibold mb-1 ${isPhd ? 'text-blue-600' : 'text-cyan-600'}">${isPhd ? 'PhD' : "Master's"} Student (${student.since})</div>
+                        <div class="student-card-topic">${student.topic}</div>
+                    </div>
+                </div>
+                <button class="student-card-toggle ${toggleClass}" onclick="toggleStudentCard(this)">
+                    <span>Show Details</span>
+                    <i data-lucide="chevron-down"></i>
                 </button>
-                
-                <div id="phd-expandable" class="expandable-content ${expandedPhd ? 'expanded' : ''}">
-                    <div class="mt-6 space-y-6 animate-fadeIn">
-                        <p class="text-gray-700 leading-relaxed">${student.description}</p>
+                <div class="student-card-details">
+                    <div class="student-card-content">
+                        <p class="mb-4">${student.description}</p>
                         ${renderProjects(student.projects)}
                     </div>
                 </div>
             </div>
-        </div>
-        
-        ${phdStudents.length > 1 ? `
-        <button class="carousel-btn left" onclick="previousPhd()" aria-label="Previous PhD student">
-            <i data-lucide="chevron-left"></i>
-        </button>
-        <button class="carousel-btn right" onclick="nextPhd()" aria-label="Next PhD student">
-            <i data-lucide="chevron-right"></i>
-        </button>
-        ` : ''}
-    `;
+        `;
+    }).join('');
     
     lucide.createIcons();
-    document.getElementById('phd-expand-btn')?.addEventListener('click', togglePhdExpand);
 }
 
-function renderMastersCarousel() {
-    const carousel = document.getElementById('masters-carousel');
-    if (!window.mastersStudents || mastersStudents.length === 0) {
-        carousel.innerHTML = '<p class="text-gray-500">No Master\'s students data available.</p>';
-        return;
-    }
+function toggleStudentCard(button) {
+    const detailsDiv = button.nextElementSibling;
+    const isExpanded = detailsDiv.classList.contains('expanded');
+    const icon = button.querySelector('i');
+    const span = button.querySelector('span');
     
-    const student = mastersStudents[mastersIndex];
+    detailsDiv.classList.toggle('expanded');
+    span.textContent = isExpanded ? 'Show Details' : 'Hide Details';
     
-    carousel.innerHTML = `
-        <div class="flex flex-col md:flex-row items-center gap-8">
-            <img 
-                src="${student.image}"
-                alt="${student.name}"
-                loading="lazy"
-                class="student-image"
-            />
-            <div class="flex-1 text-center md:text-left w-full">
-                <h4 class="text-2xl font-bold text-gray-900 mb-2">${student.name}</h4>
-                <p class="text-cyan-600 font-semibold mb-3">Master's Student (${student.since})</p>
-                <p class="text-gray-700 text-lg mb-4"><strong>Topic:</strong> ${student.topic}</p>
-                
-                <button id="masters-expand-btn" class="flex items-center gap-2 mx-auto md:mx-0 text-cyan-600 font-semibold hover:text-cyan-700 transition-colors">
-                    <span>${expandedMasters ? 'Hide Details' : 'Show Details'}</span>
-                    <i data-lucide="${expandedMasters ? 'chevron-up' : 'chevron-down'}"></i>
-                </button>
-                
-                <div id="masters-expandable" class="expandable-content ${expandedMasters ? 'expanded' : ''}">
-                    <div class="mt-6 space-y-6 animate-fadeIn">
-                        <p class="text-gray-700 leading-relaxed">${student.description}</p>
-                        ${renderProjects(student.projects)}
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        ${mastersStudents.length > 1 ? `
-        <button class="carousel-btn left masters" onclick="previousMasters()" aria-label="Previous Master's student">
-            <i data-lucide="chevron-left"></i>
-        </button>
-        <button class="carousel-btn right masters" onclick="nextMasters()" aria-label="Next Master's student">
-            <i data-lucide="chevron-right"></i>
-        </button>
-        ` : ''}
-    `;
-    
+    // Update icon
+    icon.setAttribute('data-lucide', isExpanded ? 'chevron-down' : 'chevron-up');
     lucide.createIcons();
-    document.getElementById('masters-expand-btn')?.addEventListener('click', toggleMastersExpand);
 }
 
 function renderProjects(projects) {
     if (!projects || projects.length === 0) return '';
     
     return projects.map(project => `
-        <div class="border-t pt-4">
+        <div class="border-t pt-4 mt-4">
             <h5 class="font-bold text-gray-900 mb-2">${project.title}</h5>
             <p class="text-gray-700 mb-3">${project.details}</p>
             ${project.images && project.images.length > 0 ? `
@@ -888,40 +1142,6 @@ function renderProjects(projects) {
             ` : ''}
         </div>
     `).join('');
-}
-
-function togglePhdExpand() {
-    expandedPhd = !expandedPhd;
-    renderPhdCarousel();
-}
-
-function toggleMastersExpand() {
-    expandedMasters = !expandedMasters;
-    renderMastersCarousel();
-}
-
-function nextPhd() {
-    phdIndex = (phdIndex + 1) % phdStudents.length;
-    expandedPhd = false;
-    renderPhdCarousel();
-}
-
-function previousPhd() {
-    phdIndex = (phdIndex - 1 + phdStudents.length) % phdStudents.length;
-    expandedPhd = false;
-    renderPhdCarousel();
-}
-
-function nextMasters() {
-    mastersIndex = (mastersIndex + 1) % mastersStudents.length;
-    expandedMasters = false;
-    renderMastersCarousel();
-}
-
-function previousMasters() {
-    mastersIndex = (mastersIndex - 1 + mastersStudents.length) % mastersStudents.length;
-    expandedMasters = false;
-    renderMastersCarousel();
 }
 
 // PUBLICATIONS RENDERING
@@ -1034,83 +1254,6 @@ function renderEngagements() {
     }
 }
 
-// NAVIGATION
-let activeSection = 'home';
-
-function initNavigation() {
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-            const section = this.getAttribute('data-section');
-            scrollToSection(section);
-            updateActiveLink(section);
-        });
-    });
-
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-            const section = this.getAttribute('data-section');
-            scrollToSection(section);
-            updateActiveLink(section);
-            toggleMobileMenu();
-        });
-    });
-
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-
-    window.addEventListener('scroll', debounce(updateActiveSectionOnScroll, 100));
-}
-
-function scrollToSection(section) {
-    const element = document.getElementById(section);
-    if (element) {
-        const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
-    }
-}
-
-function updateActiveLink(section) {
-    activeSection = section;
-    
-    document.querySelectorAll('.nav-link').forEach(link => {
-        if (link.getAttribute('data-section') === section) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
-
-function updateActiveSectionOnScroll() {
-    const sections = ['home', 'projects', 'students', 'publications', 'engagement'];
-    const scrollPosition = window.scrollY + 100;
-
-    for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPosition) {
-            if (activeSection !== sections[i]) {
-                updateActiveLink(sections[i]);
-            }
-            break;
-        }
-    }
-}
-
-function toggleMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const closeIcon = document.getElementById('close-icon');
-
-    mobileMenu.classList.toggle('hidden');
-    menuIcon.classList.toggle('hidden');
-    closeIcon.classList.toggle('hidden');
-}
 
 function debounce(func, wait) {
     let timeout;
@@ -1122,6 +1265,155 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+// STICKY INDEX NAVIGATION
+function initStickyNav() {
+    const stickyNav = document.getElementById('sticky-nav');
+    const navItems = document.querySelectorAll('.sticky-nav-item');
+    const heroBanner = document.querySelector('.hero-banner');
+    
+    if (!stickyNav || !heroBanner) return;
+    
+    // Handle sticky positioning
+    function updateStickyNav() {
+        const bannerBottom = heroBanner.getBoundingClientRect().bottom;
+        
+        if (bannerBottom <= 0) {
+            stickyNav.classList.add('sticky');
+        } else {
+            stickyNav.classList.remove('sticky');
+        }
+        
+        // Update active section based on scroll position
+        const sections = ['home', 'projects', 'students', 'publications', 'engagement'];
+        const scrollPosition = window.scrollY + 100;
+        
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const section = document.getElementById(sections[i]);
+            if (section && section.offsetTop <= scrollPosition) {
+                navItems.forEach(item => {
+                    if (item.getAttribute('data-section') === sections[i]) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+                break;
+            }
+        }
+    }
+    
+    // Handle nav item clicks
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const section = this.getAttribute('data-section');
+            const element = document.getElementById(section);
+            
+            if (element) {
+                const offset = stickyNav.classList.contains('sticky') ? 60 : 0;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    window.addEventListener('scroll', debounce(updateStickyNav, 10));
+    updateStickyNav(); // Initial call
+}
+
+// INDEX NAVIGATION
+function initIndexNav() {
+    const indexNavLinks = document.querySelectorAll('.index-nav-link');
+    
+    // Handle click navigation
+    indexNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const section = this.getAttribute('data-section');
+            scrollToSection(section);
+            updateIndexNav(section);
+        });
+    });
+    
+    // Handle scroll to update active link
+    window.addEventListener('scroll', debounce(updateIndexNavOnScroll, 100));
+}
+
+function scrollToSection(section) {
+    const element = document.getElementById(section);
+    if (element) {
+        const indexNav = document.getElementById('index-nav');
+        const navHeight = indexNav ? indexNav.offsetHeight : 0;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navHeight - 20;
+        
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function updateIndexNav(section) {
+    document.querySelectorAll('.index-nav-link').forEach(link => {
+        if (link.getAttribute('data-section') === section) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+function updateIndexNavOnScroll() {
+    const sections = ['home', 'projects', 'students', 'publications', 'engagement'];
+    const scrollPosition = window.scrollY + 100;
+    
+    for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+            updateIndexNav(sections[i]);
+            break;
+        }
+    }
+}
+
+// PARALLAX HERO BANNER
+function initParallaxBanner() {
+    const heroBanner = document.querySelector('.hero-banner');
+    if (!heroBanner) return;
+    
+    const maxPadding = 8;
+    const minPadding = 0.5;
+    const maxMinHeight = 80;
+    const minMinHeight = 35;
+    
+    function updateBannerParallax() {
+        const scrollPosition = window.scrollY;
+        const heroBannerHeight = heroBanner.offsetHeight;
+        
+        // Calculate progress: 0 at top, 1 when banner is scrolled out of view
+        const progress = Math.min(scrollPosition / (heroBannerHeight * 0.7), 1);
+        
+        // Reverse progress for expansion effect (1 at top, 0 when scrolled down)
+        const expandProgress = 1 - progress;
+        
+        // Calculate dynamic padding and height
+        const padding = minPadding + (maxPadding - minPadding) * expandProgress;
+        const minHeight = minMinHeight + (maxMinHeight - minMinHeight) * expandProgress;
+        
+        heroBanner.style.paddingTop = padding + 'rem';
+        heroBanner.style.paddingBottom = padding + 'rem';
+        heroBanner.style.minHeight = minHeight + 'vh';
+    }
+    
+    window.addEventListener('scroll', debounce(updateBannerParallax, 10));
+    updateBannerParallax(); // Initial call
 }
 
 // EASTER EGG
@@ -1137,11 +1429,12 @@ function initEasterEgg() {
 // INITIALIZE EVERYTHING
 document.addEventListener('DOMContentLoaded', () => {
     try {
+        renderStudentCards(phdStudents, 'phd-cards', true);
+        renderStudentCards(mastersStudents, 'masters-cards', false);
         renderPublications();
         renderEngagements();
-        renderPhdCarousel();
-        renderMastersCarousel();
-        initNavigation();
+        initIndexNav();
+        initParallaxBanner();
         initEasterEgg();
         
         lucide.createIcons();
